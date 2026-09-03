@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Guardia Hospitalaria</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    color: rgb(0, 0, 0);
+}
+
+QMainWindow, QWidget#centralwidget {
+    background-color: rgb(232, 248, 248);
+}
+
+QLabel#lblTitulo {
+    background-color: rgb(103, 201, 202);
+    color: rgb(0, 0, 0);
+    padding: 8px;
+}
+
+QGroupBox {
+    color: rgb(0, 0, 0);
+}
+
+QLineEdit, QSpinBox, QComboBox, QListWidget {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+QPushButton {
+    background-color: rgb(190, 232, 232);
+    color: rgb(0, 0, 0);
+}
+
+QMessageBox QLabel {
+    color: rgb(255, 255, 255);
+}
+
+QPushButton#btnAtender {
+    background-color: rgb(205, 235, 198);
+}
+
+QPushButton#btnSalir {
+    background-color: rgb(204, 225, 239);
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayoutPrincipal">
+    <item>
+     <widget class="QLabel" name="lblTitulo">
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>GUARDIA HOSPITALARIA - GRUPO 2</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="lblIntegrantes">
+      <property name="text">
+       <string>González G. - González F. - Gasparetto G.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="grpAdmision">
+      <property name="title">
+       <string>Ingreso de paciente</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayoutAdmision">
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblNombre">
+         <property name="text">
+          <string>Nombre y apellido:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="txtNombre">
+         <property name="placeholderText">
+          <string>Ingrese nombre y apellido</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblEdad">
+         <property name="text">
+          <string>Edad:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="spnEdad">
+         <property name="specialValueText">
+          <string>Ingrese la edad</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lblGenero">
+         <property name="text">
+          <string>Género:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="cmbGenero"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="lblDni">
+         <property name="text">
+          <string>DNI:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="txtDni">
+         <property name="placeholderText">
+          <string>Ingrese DNI (solo números)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <widget class="QPushButton" name="btnAdmision">
+         <property name="text">
+          <string>Admitir paciente</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="grpProximo">
+      <property name="title">
+       <string>Próximo paciente</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayoutProximo">
+       <item>
+        <widget class="QLabel" name="lblProximo">
+         <property name="text">
+          <string>No hay pacientes en espera.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayoutBotones">
+         <item>
+          <widget class="QPushButton" name="btnVerProximo">
+           <property name="text">
+            <string>Ver próximo</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnAtender">
+           <property name="text">
+            <string>Atender</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayoutListas">
+      <item>
+       <widget class="QGroupBox" name="grpEspera">
+        <property name="title">
+         <string>Pacientes sin atender</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayoutEspera">
+         <item>
+          <widget class="QLabel" name="lblCantidadEspera">
+           <property name="text">
+            <string>En espera: 0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="listEspera"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="grpAtendidos">
+        <property name="title">
+         <string>Pacientes atendidos</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayoutAtendidos">
+         <item>
+          <widget class="QLabel" name="lblCantidadAtendidos">
+           <property name="text">
+            <string>Atendidos: 0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="listAtendidos"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnSalir">
+      <property name="text">
+       <string>Salir</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
