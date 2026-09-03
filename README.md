@@ -128,46 +128,6 @@ Los pacientes se ven con un formato parecido a este:
 2. Juan Pérez - Edad: 42 - Género: M - DNI: 23456789
 ```
 
-## Funcionamiento general
-
-```mermaid
-flowchart TD
-    A([Inicio]) --> B[Ingresar usuario]
-    B --> C{¿Se canceló?}
-    C -- Sí --> Z([Fin])
-    C -- No --> D[Ingresar contraseña]
-    D --> E{¿Se canceló?}
-    E -- Sí --> Z
-    E -- No --> F{¿Los datos son correctos?}
-    F -- No --> G[Mostrar acceso denegado]
-    G --> Z
-    F -- Sí --> H[Mostrar ventana principal]
-    H --> I{Elegir una acción}
-
-    I -- Admitir --> J[Cargar datos del paciente]
-    J --> K{¿Están completos?}
-    K -- No --> L[Mostrar advertencia]
-    L --> H
-    K -- Sí --> M[Agregar al final de la cola]
-    M --> N[Limpiar campos y actualizar]
-    N --> H
-
-    I -- Ver próximo --> O{¿Hay pacientes?}
-    O -- No --> P[Mostrar lista vacía]
-    P --> H
-    O -- Sí --> Q[Mostrar el primero sin quitarlo]
-    Q --> H
-
-    I -- Atender --> R{¿Hay pacientes?}
-    R -- No --> S[Mostrar lista vacía]
-    S --> H
-    R -- Sí --> T[Sacar al primero de la cola]
-    T --> U[Agregarlo a atendidos]
-    U --> V[Actualizar la pantalla]
-    V --> H
-
-    I -- Salir --> Z
-```
 
 ## Interfaz
 
